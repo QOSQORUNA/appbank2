@@ -1,0 +1,31 @@
+<div class="container text-center ">
+    <!-- <h1>Depositar en la cuenta Num:<small> {{ look.number }} </small></h1> -->
+
+    <hr>
+
+    <div class="row animated fadeIn faster">
+        <div class="col">
+            <form (ngSubmit)="toDeposit( f )" #f="ngForm">
+                <div class="form-group text-center">
+                    <label>Monto actual: {{ look.amount }}</label>
+                    <input type="number" class="form-control" placeholder="Ingrese Monto a Depositar" name="amount" [(ngModel)]="deposito.amount" required #inputamount="ngModel">
+                    <label>cuenta:</label>
+                    <input type="button" class="form-control" name="account_id" [(ngModel)]="+look.number" #inputaccountid="ngModel">
+                    <button type="submit" class="form-control btn btn-primary w-25 mt-2">
+                      <i class="fa fa-hand-holding-usd"></i>
+                      Depositar
+                      </button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="exitDepo" class="container mt-5">
+
+    <div class="alert alert-info text-center" role="alert">
+        usted ha depositado <small>{{valorMonto }}</small> ahora tienes <small>{{ +(look.amount) + valorMonto }}</small>
+    </div>

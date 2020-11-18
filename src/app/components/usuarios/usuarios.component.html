@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row mt-2 mb-2">
+        <div class="col text-right">
+            <button type="button" class="btn btn-primary" routerLink="/usuario/crear">
+      <i class="fa fa-plus"></i>
+      Agregar
+    </button>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">OPTIONS</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of resultado">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name}}</td>
+                <td>{{ item.lastname }}</td>
+                <td>{{ item.sex }}</td>
+                <td>
+                    <button type="button" class="btn btn-success" (click)="goAccount(item.id)" disabled>Account</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div *ngIf="mensajeLogin" class="container mt-5">
+
+        <div class="alert alert-danger text-center" role="alert">
+            usted no esta logeado, por favor haga login!!
+        </div>
+
+    </div>
+</div>

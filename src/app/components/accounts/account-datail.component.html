@@ -1,0 +1,42 @@
+<div *ngIf="!existeCuenta" class="container mt-5">
+
+    <div class="alert alert-warning text-center" role="alert">
+        usted aun no ha creado una cuenta
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" [routerLink]="['/accounts', usuarioId , 'crear']">
+        <i class="fa fa-plus"></i>
+        Crear cuenta
+      </button>
+    </div>
+
+</div>
+
+
+<div *ngIf="existeCuenta" class="container mt-5">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Number</th>
+                <th scope="col">tipo Cuenta</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Cliente</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr *ngFor="let item of accountsArray"> -->
+            <tr *ngFor="let item of account">
+                <td>{{ item.id }}</td>
+                <td>{{ item.number }}</td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.amount }}</td>
+                <td>{{ item.client_id }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <h1>{{ look.number}}</h1> -->

@@ -1,0 +1,38 @@
+<div *ngIf="validarMonto()" class="container text-center ">
+    <!-- <h2>tipo de cuenta: <small><b>{{look.type}}</b>  </small></h2> -->
+    <hr>
+
+    <div class="row animated fadeIn faster">
+        <div class="col">
+            <form (ngSubmit)="toWhitdraw( retirar )" #retirar="ngForm">
+                <div class="form-group text-center">
+                    <label>Monto actual: {{ look.amount }}</label>
+                    <input type="number" class="form-control" placeholder="ingrese monto a retirar" name="amount" [(ngModel)]="deposito.amount" required #inputamount="ngModel">
+                    <label>cuenta:</label>
+                    <input type="button" class="form-control" name="account_id" [(ngModel)]="+look.number" #inputaccountid="ngModel">
+
+
+                    <button type="submit" class="form-control btn btn-primary w-25 mt-2">
+                    <i class="fa fa-money-check-alt"></i>
+                    Retirar
+                    </button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!validarMonto()" class="container mt-5">
+
+    <div class="alert alert-danger text-center" role="alert">
+        usted no tiene fondos, por favor realice un deposito
+    </div>
+
+</div>
+<div *ngIf="exitOp" class="container mt-5">
+
+    <div class="alert alert-info text-center" role="alert">
+        usted ha retirado <small>{{valorMonto }}</small> ahora tienes <small>{{ +(look.amount) - valorMonto }}</small>
+    </div>

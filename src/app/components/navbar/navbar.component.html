@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">AppBank</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['usuarios']">Usuarios</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['accountslist']">Cuentas</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['tokenregister']">Registrar</a>
+            </li>
+            <!-- <li class="nav-item inline" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['login']">Login</a>
+            </li> -->
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+
+            <button class="btn btn-primary my-2 my-sm-0 mr-2" type="button" [routerLink]="['login']">
+               Log In
+            </button>
+            <button class="btn btn-danger my-2 my-sm-0 mr-2" type="button" [routerLink]="['login']" (click)="cerrarSesion()">
+                LogOut
+            </button>
+
+        </form>
+
+    </div>
+</nav>

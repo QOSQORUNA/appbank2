@@ -1,0 +1,52 @@
+<h1 class="text-center">Crear nuevo usuario</h1>
+<hr>
+
+
+
+<div class="row animated fadeIn faster container">
+    <div class="col text-right">
+        <div class="col">
+            <button class="btn btn-danger" routerLink="/usuarios">
+          <i class="fa fa-arrow-left"></i>
+          Regresar
+        </button>
+        </div>
+    </div>
+    <div class="col">
+        <form (ngSubmit)="toCreate( f )" #f="ngForm">
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" placeholder="Ingrese un nombre" name="name" [(ngModel)]="usuario.name" required #inputname="ngModel">
+            </div>
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" class="form-control" placeholder="Ingrese un apellido" name="lastname" [(ngModel)]="usuario.lastname" required #inputlastname="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label>Genero</label>
+                <input type="text" class="form-control" placeholder="ingrese el genero" name="sex" [(ngModel)]="usuario.sex" required #inputsex="ngModel">
+
+            </div>
+
+
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25 mt-2">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+
+
+
+
+        </form>
+    </div>
+</div>
+<div *ngIf="showAlert" class="container">
+    <div class="alert alert-success" role="alert">
+        Usuario guardado con exito!!!
+    </div>
+</div>

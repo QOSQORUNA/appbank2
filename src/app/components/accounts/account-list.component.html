@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row mt-2 mb-2">
+        <div class="col text-right">
+            <button type="button" class="btn btn-primary" routerLink="/account/crear">
+  <i class="fa fa-plus"></i>
+  Agregar
+</button>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Number</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">OPTIONS</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of resultado" [ngClass]=" { 'text-danger': toEvaluate(item.amount) } ">
+                <td>{{ item.id }}</td>
+                <td>{{ item.number}}</td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.amount }}</td>
+                <td>{{ item.client_id }}</td>
+                <td>
+                    <button type="button" class="btn btn-success mr-2" (click)="goAccount(item.number)">
+                        <i class="fa fa-eye mr-1"></i>
+                        Account
+                    </button>
+                    <!-- <button type="button" class="btn btn-info mr-2">
+                        <i class="fa fa-pen"></i>
+                        Edit
+                    </button> -->
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div *ngIf="mensajeLogin" class="container mt-5">
+
+        <div class="alert alert-danger text-center" role="alert">
+            usted no esta logeado, por favor haga login!!
+        </div>
+
+    </div>
+</div>
